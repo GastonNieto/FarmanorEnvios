@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "388262022295",
+    "firebase_url": "https://gendelivery-378cc.firebaseio.com",
+    "project_id": "gendelivery-378cc",
+    "storage_bucket": "gendelivery-378cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388262022295:android:ef315b85c4ec30dc",
+        "android_client_info": {
+          "package_name": "com.genv3.gendelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388262022295-ooq0vd2h45o7t3vrdiucqmhg4cfudmtf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-b-C6_jwsnCAELXqqgz6JoX8yKm0XYro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388262022295-ooq0vd2h45o7t3vrdiucqmhg4cfudmtf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

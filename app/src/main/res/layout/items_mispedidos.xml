@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/FondoGris">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="2.5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="5dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <View
+                    android:background="@color/ColorFarmanor"
+                    android:id="@+id/vwEntrega"
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="3dp"
+                    android:layout_height="98dp">
+
+                </View>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp">
+
+                                <TextView
+                                    android:id="@+id/tvMisSucNombre"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="NOMBRE SUCURSAL"
+                                    android:textColor="#141414"
+                                    android:textSize="24sp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginEnd="0dp"
+                                android:layout_toStartOf="@+id/btnVer"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginEnd="2dp"
+                                        android:src="@drawable/ic_twotone_place" />
+
+                                    <TextView
+                                        android:id="@+id/tvMisPedDireccion"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:maxLines="1"
+                                        android:text="Base general belgrano 3124 barrio antartida II base general belgrano mil tres veinticuatro barrio antartida 2"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_marginEnd="2dp"
+                                        android:src="@drawable/ic_twotone_persona" />
+
+                                    <TextView
+                                        android:id="@+id/tvMisPedNom"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="20dp"
+                                        android:text="Gastón Nieto"
+                                        android:textSize="14sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:id="@+id/calendario"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_marginStart="0dp"
+                                        android:layout_marginEnd="3dp"
+                                        android:src="@drawable/ic_date" />
+
+                                    <TextView
+                                        android:id="@+id/tvMisPedFech"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="20dp"
+                                        android:text="21-04-2019 13:00"
+                                        android:textSize="14sp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnAccion"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="27dp"
+                                android:layout_marginEnd="0dp"
+                                android:text="Detalle"
+                                android:textColor="@color/ColorFarmanor"
+                                app:cornerRadius="20dp"
+                                app:strokeColor="@color/ColorFarmanor" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f63f75</color>
+    <color name="colorPrimaryDark">#d8d8d8</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="ColorFarmanor">#f63f75</color>
+    <color name= "FondoGris">#eeeeee</color>
+    <color name="rosaclaro">#f9e9ee</color>
+</resources>
