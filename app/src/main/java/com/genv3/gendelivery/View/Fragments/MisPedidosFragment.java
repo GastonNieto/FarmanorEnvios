@@ -55,11 +55,11 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
+    private TextView tvganancia;
     private IMisPedidos.Presenter presenter;
     private Long idCadete;
     private Context context;
-    private ImageButton ibtnbuscar, ibtnclear;
+    private MaterialButton ibtnbuscar, ibtnclear;
     private RecyclerView recyclerView;
     private Dialog dialog;
     private String inicial = null, ffinal = null, unicafecha = null;
@@ -105,6 +105,7 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
         idCadete = Preferens.getInteger(context, Preferens.getKeyGuardia());
         ibtnbuscar = view.findViewById(R.id.ibtnBuscar);
         ibtnclear = view.findViewById(R.id.ibtnClear);
+        tvganancia = view.findViewById(R.id.tvGanancia);
         ibtnbuscar.setOnClickListener(this);
         ibtnclear.setOnClickListener(this);
         recyclerView = view.findViewById(R.id.rvMisPedidos);
@@ -116,7 +117,7 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
                 DialogCartel();
                 presenter.SolicitarMisPedidos(idCadete, "Tomado");
             }
-        }, 300);
+        }, 400);
         return view;
     }
 
@@ -144,10 +145,11 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
     }
 
     @Override
-    public void CargarMisPedidos(ArrayList<EntregasTomadas> entregasTomadas) {
+    public void CargarMisPedidos(ArrayList<EntregasTomadas> entregasTomadas, Double ganancia) {
         AdapterMisPedidos misPedidos = new AdapterMisPedidos(entregasTomadas, context);
         recyclerView.setAdapter(misPedidos);
         misPedidos.notifyDataSetChanged();
+        tvganancia.setText("$"+ganancia.toString());
     }
 
     @Override
@@ -259,4 +261,5 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }

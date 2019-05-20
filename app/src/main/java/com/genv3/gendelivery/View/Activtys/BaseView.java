@@ -1,22 +1,32 @@
 package com.genv3.gendelivery.View.Activtys;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.genv3.gendelivery.R;
 import com.genv3.gendelivery.View.Fragments.EntregaFragment;
 import com.genv3.gendelivery.View.Fragments.MisPedidosFragment;
 import com.genv3.gendelivery.View.Fragments.PedidosFragmen;
+import com.genv3.gendelivery.util.Preferens;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import java.util.List;
 
 public class BaseView extends AppCompatActivity {
     public static int navItemIndex = 0;
     BottomNavigationView navigation;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -79,7 +89,36 @@ public class BaseView extends AppCompatActivity {
             navItemIndex = 0;
             mOnNavigationItemSelectedListener.onNavigationItemSelected(navigation.getMenu().getItem(0).setChecked(true));
             return;
+        }else {
+            Dialogout();
         }
-        super.onBackPressed();
+    }
+    public void Dialogout(){
+        final Dialog dialog4 = new Dialog(BaseView.this);
+        dialog4.setContentView(R.layout.dialog_confirmar);
+        TextView tvtitulorechazo = dialog4.findViewById(R.id.tvdialogConfirTitulo);
+        TextView tvdescripcionrechazo = dialog4.findViewById(R.id.tvdialogConfirDescripcion);
+        tvtitulorechazo.setText("Salir");
+        tvdescripcionrechazo.setText("¿Desea cerrar sesión?");
+        MaterialButton btnsirechazo = dialog4.findViewById(R.id.btnDialogConfirSi);
+        MaterialButton btnnorechazo = dialog4.findViewById(R.id.btnDialogConfirNo);
+        btnsirechazo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Preferens.setString(BaseView.this,Preferens.getKeyLog(),Preferens.getStateLogout());
+                dialog4.dismiss();
+                finish();
+
+            }
+        });
+        btnnorechazo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog4.dismiss();
+            }
+        });
+        dialog4.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog4.setCancelable(false);
+        dialog4.show();
     }
 }

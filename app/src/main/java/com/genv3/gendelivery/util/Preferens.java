@@ -15,9 +15,24 @@ public class Preferens {
     private static final String KEY_PASS = "pass";
     private static final String KEY_RECUERDAME = "recuerdame";
     private static final String KEY_CONTROL = "control";
+    private static final String KEY_LOG = "login";
+    private static final String STATE_LOGIN = "LOGIN";
+    private static final String STATE_LOGOUT = "LOGOUT";
+
+    public static String getStateLogin() {
+        return STATE_LOGIN;
+    }
+
+    public static String getStateLogout() {
+        return STATE_LOGOUT;
+    }
 
     public static String getKeyObjeto() {
         return KEY_OBJETO;
+    }
+
+    public static String getKeyLog() {
+        return KEY_LOG;
     }
 
     public static void setEntregasDisponibles (Context context, final String key, final EntregasDisponibles disponibles){

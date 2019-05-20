@@ -22,7 +22,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Buscar"
+            android:text="Filtros"
             android:textColor="#141414"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -36,7 +36,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Seleccione un tipo de filtro para observar sus entregas."
+                            android:textSize="18sp"
+                             />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,6 +84,11 @@
                         android:layout_marginBottom="8dp"
                         android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginEnd="5dp"
+                            android:src="@drawable/ic_date" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -107,7 +140,7 @@
                             android:id="@+id/ibtnBuscarFechaUnica"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Buscar"
+                            android:text="Filtrar"
                             app:cornerRadius="20dp" />
                     </LinearLayout>
 
@@ -133,6 +166,11 @@
                         android:layout_marginBottom="8dp"
                         android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginEnd="5dp"
+                            android:src="@drawable/ic_date" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -213,7 +251,7 @@
                             android:id="@+id/ibtnBuscarEntrefechas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Buscar"
+                            android:text="Filtrar"
                             app:cornerRadius="20dp" />
                     </LinearLayout>
                 </LinearLayout>

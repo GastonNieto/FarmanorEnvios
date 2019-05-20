@@ -65,13 +65,37 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Fecha de Entrega"
+                            android:text="Datos de Entrega"
                             android:textColor="#141414"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
 
+                    <LinearLayout
+                        android:layout_marginBottom="8dp"
+                        android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="Fecha de Entrega">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etgdFechaEntDet"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:maxLines="1"
+                            android:text="Farmanor" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -82,10 +106,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:focusable="false"
-                            android:hint="Fecha de Entrega">
+                            android:hint="Ganancia">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etgdFechaEntDet"
+                                android:id="@+id/etgdImpEntDet"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
                                 android:editable="false"
@@ -95,6 +119,7 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

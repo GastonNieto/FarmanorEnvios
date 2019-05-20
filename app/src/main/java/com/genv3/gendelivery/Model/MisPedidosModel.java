@@ -29,7 +29,7 @@ public class MisPedidosModel implements IMisPedidos.Model {
     @Override
     public void extraerMisPedidos(Long cadete, String estado) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.14/gendelivery/")
+                .baseUrl(StringClase.getIPSERVIDOR())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         MisPedidos misPedidos = retrofit.create(MisPedidos.class);
@@ -37,19 +37,24 @@ public class MisPedidosModel implements IMisPedidos.Model {
         call.enqueue(new Callback<List<EntregasTomadas>>() {
             @Override
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
+                Double ganancia = 0.0;
                 if (!response.isSuccessful()) {
                     return;
                 }
+                tomadas.clear();
+
                 List<EntregasTomadas> entregasTomadasList = response.body();
                 for (EntregasTomadas posts : entregasTomadasList) {
+                    ganancia = ganancia + posts.getEtgtImporte();
                     tomadas.add(posts);
                 }
+                Math.floor(ganancia);
                 if (tomadas.size()==0) {
                     presenter.OnClear(R.drawable.ic_twotone_clear);
                     tomadas.clear();
-                    presenter.RecibirMisPedidos(tomadas);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
                 } else {
-                    presenter.RecibirMisPedidos(tomadas);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
                     presenter.OnSucessCharge();
 
                 }
@@ -78,17 +83,19 @@ public class MisPedidosModel implements IMisPedidos.Model {
                 if (!response.isSuccessful()) {
                     return;
                 }
+                Double ganancia = 0.0;
                 tomadas.clear();
                 List<EntregasTomadas> entregasTomadasList = response.body();
                 for (EntregasTomadas posts : entregasTomadasList) {
+                    ganancia = ganancia + posts.getEtgtImporte();
                     tomadas.add(posts);
                 }
                 if (tomadas.size()==0) {
                     presenter.OnClear(R.drawable.ic_twotone_clear);
                     tomadas.clear();
-                    presenter.RecibirMisPedidos(tomadas);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
                 } else {
-                    presenter.RecibirMisPedidos(tomadas);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
                     presenter.OnSucessCharge();
 
                 }
@@ -117,17 +124,20 @@ public class MisPedidosModel implements IMisPedidos.Model {
                 if (!response.isSuccessful()) {
                     return;
                 }
+                Double ganancia = 0.0;
                 tomadas.clear();
                 List<EntregasTomadas> entregasTomadasList = response.body();
                 for (EntregasTomadas posts : entregasTomadasList) {
+                    ganancia = ganancia + posts.getEtgtImporte();
                     tomadas.add(posts);
                 }
                 if (tomadas.size()==0) {
                     presenter.OnClear(R.drawable.ic_twotone_clear);
                     tomadas.clear();
-                    presenter.RecibirMisPedidos(tomadas);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
+
                 } else {
-                    presenter.RecibirMisPedidos(tomadas);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
                     presenter.OnSucessCharge();
 
                 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface IMisPedidos {
     interface View {
-        void CargarMisPedidos(ArrayList<EntregasTomadas> entregasTomadas);
+        void CargarMisPedidos(ArrayList<EntregasTomadas> entregasTomadas,Double ganancia);
 
         void OnErrorCharge(int a);
 
@@ -17,7 +17,7 @@ public interface IMisPedidos {
     }
 
     interface Presenter {
-        void RecibirMisPedidos(ArrayList<EntregasTomadas> entregasTomadas);
+        void RecibirMisPedidos(ArrayList<EntregasTomadas> entregasTomadas,Double ganancia);
 
         void SolicitarMisPedidos(Long cadete, String estado);
 

@@ -10,11 +10,38 @@ public class EntregasTomadas implements Serializable {
     private ArrayList<EntregasDisponibles> entregasDisponibles;
     private BigInteger cdtId;
     private ArrayList<Cadetes> Cadete;
+    private BigInteger tfsId;
+    private ArrayList<Tarifas> tarifas;
+    private Double etgtImporte;
     private String etgtFechaTomada;
     private String etgtFechaEntrega;
     private String etgtLatitud;
     private String etgtLongitud;
     private String etgtEstado;
+
+    public BigInteger getTfsId() {
+        return tfsId;
+    }
+
+    public void setTfsId(BigInteger tfsId) {
+        this.tfsId = tfsId;
+    }
+
+    public ArrayList<Tarifas> getTarifas() {
+        return tarifas;
+    }
+
+    public void setTarifas(ArrayList<Tarifas> tarifas) {
+        this.tarifas = tarifas;
+    }
+
+    public Double getEtgtImporte() {
+        return etgtImporte;
+    }
+
+    public void setEtgtImporte(Double etgtImporte) {
+        this.etgtImporte = etgtImporte;
+    }
 
     public BigInteger getEtgtId() {
         return etgtId;

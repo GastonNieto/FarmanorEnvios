@@ -17,9 +17,9 @@ public class MisPedidosPresenter implements IMisPedidos.Presenter {
     }
 
     @Override
-    public void RecibirMisPedidos(ArrayList<EntregasTomadas> entregasTomadas) {
+    public void RecibirMisPedidos(ArrayList<EntregasTomadas> entregasTomadas,Double ganancia) {
         if (view != null) {
-            view.CargarMisPedidos(entregasTomadas);
+            view.CargarMisPedidos(entregasTomadas,ganancia);
         }
     }
 

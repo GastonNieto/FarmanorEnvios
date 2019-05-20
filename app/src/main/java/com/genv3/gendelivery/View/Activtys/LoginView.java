@@ -29,6 +29,7 @@ import com.genv3.gendelivery.Objects.Cadetes;
 import com.genv3.gendelivery.Objects.Posts;
 import com.genv3.gendelivery.Presenter.LoginPresenter;
 import com.genv3.gendelivery.R;
+import com.genv3.gendelivery.util.Preferens;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -51,7 +52,7 @@ public class LoginView extends AppCompatActivity implements View.OnClickListener
     MaterialButton btnlogin;
     Context context;
     private Ilogin.presenter presenter;
-
+    private String State;
     @Override
     protected void onPause() {
         super.onPause();
@@ -80,7 +81,7 @@ public class LoginView extends AppCompatActivity implements View.OnClickListener
         etpass = findViewById(R.id.etPass);
         btnlogin = findViewById(R.id.btnLogin);
         btnlogin.setOnClickListener(this);
-
+        ComprobarEstado();
 
     }
 
@@ -259,5 +260,14 @@ public class LoginView extends AppCompatActivity implements View.OnClickListener
         dialog2.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog2.setCancelable(false);
         dialog2.show();
+    }
+
+    public void ComprobarEstado(){
+        State = Preferens.getString(context,Preferens.getKeyLog());
+        if (State.equals(Preferens.getStateLogin()) ){
+            Intent intent = new Intent(this, BaseView.class);
+            startActivity(intent);
+        }
+
     }
 }

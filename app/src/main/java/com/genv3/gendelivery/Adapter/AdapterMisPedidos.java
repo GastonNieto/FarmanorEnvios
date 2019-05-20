@@ -42,6 +42,7 @@ public class AdapterMisPedidos extends RecyclerView.Adapter<AdapterMisPedidos.Vi
         holder.tvpeddireccion.setText(tomadas.get(position).getEntregasDisponibles().get(0).getEtgdDir());
         holder.tvpednom.setText(tomadas.get(position).getEntregasDisponibles().get(0).getEtgdReceptor());
         holder.tvpedfech.setText(FormatDate.formateador(tomadas.get(position).getEtgtFechaEntrega()));
+        holder.tvimporte.setText(tomadas.get(position).getEtgtImporte().toString());
 
     }
 
@@ -51,7 +52,7 @@ public class AdapterMisPedidos extends RecyclerView.Adapter<AdapterMisPedidos.Vi
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvsucnombre, tvpeddireccion, tvpednom, tvpedfech;
+        TextView tvsucnombre, tvpeddireccion, tvpednom, tvpedfech, tvimporte;
         View vw;
         MaterialButton btnver;
         Context context;
@@ -59,6 +60,7 @@ public class AdapterMisPedidos extends RecyclerView.Adapter<AdapterMisPedidos.Vi
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             context = itemView.getContext();
+            tvimporte = itemView.findViewById(R.id.tvImporte);
             tvpednom = itemView.findViewById(R.id.tvMisPedNom);
             tvsucnombre = itemView.findViewById(R.id.tvMisSucNombre);
             tvpeddireccion = itemView.findViewById(R.id.tvMisPedDireccion);
@@ -74,9 +76,9 @@ public class AdapterMisPedidos extends RecyclerView.Adapter<AdapterMisPedidos.Vi
             final EntregasTomadas entregasTomadas = tomadas.get(position);
             if (v.getId() == btnver.getId()) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("objET",entregasTomadas);
+                bundle.putSerializable("objET", entregasTomadas);
                 Intent intent = new Intent(context, EntregaDetalleView.class);
-                intent.putExtra("DetalleEntrega",bundle);
+                intent.putExtra("DetalleEntrega", bundle);
                 context.startActivity(intent);
 
             }

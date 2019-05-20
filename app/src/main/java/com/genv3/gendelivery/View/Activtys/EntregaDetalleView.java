@@ -10,8 +10,10 @@ import com.genv3.gendelivery.util.FormatDate;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class EntregaDetalleView extends AppCompatActivity {
-    private TextInputEditText etgdfechaent, sclnom, scldir, scltel, etgdidcomprobante, etgdreceptor, etgdpedido, etgddir, etgdtel, etgdfecha;
+    private TextInputEditText etgdfechaent, sclnom, scldir, scltel, etgdidcomprobante, etgdreceptor,
+            etgdpedido, etgddir, etgdtel, etgdfecha, etgdimpentdet;
     private EntregasTomadas entregasTomadas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class EntregaDetalleView extends AppCompatActivity {
         etgdpedido.setText(entregasTomadas.getEntregasDisponibles().get(0).getEtgdPedido());
         etgdtel.setText(entregasTomadas.getEntregasDisponibles().get(0).getEtgdTel().toString());
         etgdfecha.setText(FormatDate.formateador(entregasTomadas.getEntregasDisponibles().get(0).getEtgdFecha()));
+        etgdimpentdet.setText("$"+entregasTomadas.getEtgtImporte().toString());
     }
 
     void ini() {
@@ -46,5 +49,6 @@ public class EntregaDetalleView extends AppCompatActivity {
         etgdpedido = findViewById(R.id.etgdPedidoDet);
         etgdtel = findViewById(R.id.etgdTelDet);
         etgdfecha = findViewById(R.id.etgdFechaDet);
+        etgdimpentdet = findViewById(R.id.etgdImpEntDet);
     }
 }

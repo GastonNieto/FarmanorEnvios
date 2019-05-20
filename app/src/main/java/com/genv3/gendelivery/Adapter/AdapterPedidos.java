@@ -17,6 +17,7 @@ import com.genv3.gendelivery.View.Activtys.TomarPedidosView;
 import com.genv3.gendelivery.View.Fragments.PedidosFragmen;
 import com.genv3.gendelivery.util.FormatDate;
 import com.genv3.gendelivery.util.IRespuesta;
+import com.genv3.gendelivery.util.StringClase;
 import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -124,7 +125,7 @@ public class AdapterPedidos extends RecyclerView.Adapter<AdapterPedidos.ViewHold
             //creo una instancia de retrofit
             //ademas debo agregar un coverterfactory (Gson)
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.14/gendelivery/")
+                    .baseUrl(StringClase.getIPSERVIDOR())
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
             //llamamos a la interfaz y paso por parametro la clase de la interfas .class

@@ -66,6 +66,7 @@ public class LoginModel implements Ilogin.model {
                 } else {
                     Cadetes cadetes = listDatos.get(0);
                     Preferens.setInteger(c, Preferens.getKeyGuardia(), cadetes.getCdtId());
+                    Preferens.setString(c,Preferens.getKeyLog(),Preferens.getStateLogin());
                     presenter.autenticarPresenter(listDatos);
                 }
 
