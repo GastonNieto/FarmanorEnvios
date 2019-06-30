@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_twotone_local_shipping_24px"
+        android:icon="@drawable/ic_twotone_moto"
         android:title="Pedidos" />
 
     <item
@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_twotone_backup"
+        android:icon="@drawable/ic_twotone_producto"
         android:title="Entrega" />
 
 </menu>

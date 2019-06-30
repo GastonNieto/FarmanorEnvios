@@ -2,9 +2,7 @@ package com.genv3.gendelivery.Objects;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.net.BindException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class EntregasDisponibles implements Serializable {
     private BigInteger etgdId;
@@ -12,11 +10,19 @@ public class EntregasDisponibles implements Serializable {
     private ArrayList<Sucursales> Sucursal;
     private String etgdIdComprobante;
     private String etgdReceptor;
-    private String etgdPedido;
+    private ArrayList<DetalleComprobante> etgdPedido;
     private String etgdDir;
-    private BigInteger etgdTel;
+    private String etgdTel;
     private String etgdFecha;
     private int etgdEstado;
+
+    public ArrayList<DetalleComprobante> getEtgdPedido() {
+        return etgdPedido;
+    }
+
+    public void setEtgdPedido(ArrayList<DetalleComprobante> etgdPedido) {
+        this.etgdPedido = etgdPedido;
+    }
 
     public ArrayList<Sucursales> getSucursal() {
         return Sucursal;
@@ -61,13 +67,7 @@ public class EntregasDisponibles implements Serializable {
         this.etgdReceptor = etgdReceptor;
     }
 
-    public String getEtgdPedido() {
-        return etgdPedido;
-    }
 
-    public void setEtgdPedido(String etgdPedido) {
-        this.etgdPedido = etgdPedido;
-    }
 
     public String getEtgdDir() {
         return etgdDir;
@@ -77,11 +77,11 @@ public class EntregasDisponibles implements Serializable {
         this.etgdDir = etgdDir;
     }
 
-    public BigInteger getEtgdTel() {
+    public String getEtgdTel() {
         return etgdTel;
     }
 
-    public void setEtgdTel(BigInteger etgdTel) {
+    public void setEtgdTel(String etgdTel) {
         this.etgdTel = etgdTel;
     }
 

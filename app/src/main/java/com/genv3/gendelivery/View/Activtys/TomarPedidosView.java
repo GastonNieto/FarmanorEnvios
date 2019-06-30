@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.genv3.gendelivery.Interface.ITomarPedidos;
+import com.genv3.gendelivery.Objects.DetalleComprobante;
 import com.genv3.gendelivery.Objects.EntregasDisponibles;
 import com.genv3.gendelivery.Presenter.TomarPedidosPresenter;
 import com.genv3.gendelivery.R;
@@ -41,6 +42,7 @@ public class TomarPedidosView extends AppCompatActivity implements View.OnClickL
     private BigInteger idPedido;
     private ITomarPedidos.Presener presener;
     private Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class TomarPedidosView extends AppCompatActivity implements View.OnClickL
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-              //  Toast.makeText(context, "funciona", Toast.LENGTH_LONG).show();
+                //  Toast.makeText(context, "funciona", Toast.LENGTH_LONG).show();
                 //getsPotst();
             }
         };
@@ -90,6 +92,7 @@ public class TomarPedidosView extends AppCompatActivity implements View.OnClickL
     }
 
     void setDatos(EntregasDisponibles datos) {
+        String pedidos = "";
         idCadete = Preferens.getInteger(context, Preferens.getKeyGuardia());
         idPedido = datos.getEtgdId();
         sclnom.setText(datos.getSucursal().get(0).getSclNom());
@@ -97,7 +100,10 @@ public class TomarPedidosView extends AppCompatActivity implements View.OnClickL
         scltel.setText(datos.getSucursal().get(0).getSclTel().toString());
         etgdidcomprobante.setText(datos.getEtgdIdComprobante());
         etgdreceptor.setText(datos.getEtgdReceptor());
-        etgdpedido.setText(datos.getEtgdPedido());
+        for (DetalleComprobante aux : datos.getEtgdPedido()) {
+            pedidos = pedidos + aux.getDes_articulo() + " *Cant. " + aux.getCantidad() + "\n" + "--------" + "\n";
+        }
+        etgdpedido.setText(pedidos);
         etgddir.setText(datos.getEtgdDir());
         etgdtel.setText(datos.getEtgdTel().toString());
         etgdfecha.setText(FormatDate.formateador(datos.getEtgdFecha()));
@@ -144,25 +150,25 @@ public class TomarPedidosView extends AppCompatActivity implements View.OnClickL
     @Override
     public void onTomado(int a) {
         dialog.dismiss();
-        DialogCartelon("Correcto","Tomaste el pedido",a);
+        DialogCartelon("Correcto", "Tomaste el pedido", a);
     }
 
     @Override
     public void onOcupado(int a) {
         dialog.dismiss();
-        DialogCartelon("Alerta","Este pedido fue tomado",a);
+        DialogCartelon("Alerta", "Este pedido fue tomado", a);
     }
 
     @Override
     public void onError(int a) {
         dialog.dismiss();
-    DialogCartelon("Error","Sin servicio",a);
+        DialogCartelon("Error", "Sin servicio", a);
     }
 
     @Override
     public void onPedidoPendiente(int a) {
         dialog.dismiss();
-        DialogCartelon("Alerta","Tienes un pedido pendiente",a);
+        DialogCartelon("Alerta", "Tienes un pedido pendiente", a);
 
     }
 
@@ -181,6 +187,7 @@ public class TomarPedidosView extends AppCompatActivity implements View.OnClickL
         dialog.setCancelable(false);
         dialog.show();
     }
+
     public void DialogCartelon(String titulo, String descripcion, int imagen) {
         final Dialog dialog2 = new Dialog(context);
         dialog2.setContentView(R.layout.dialog_progress);

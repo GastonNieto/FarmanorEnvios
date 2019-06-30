@@ -14,14 +14,10 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.genv3.gendelivery.View.Activtys.BaseView;
-import com.genv3.gendelivery.View.Activtys.LoginView;
 import com.genv3.gendelivery.R;
 import com.genv3.gendelivery.View.Fragments.PedidosFragmen;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
-import static android.graphics.Color.rgb;
-
 public class NotificationService extends FirebaseMessagingService {
     private static final String TAG = "MiserviocioFirebase";
 
@@ -56,8 +52,8 @@ public class NotificationService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
         notificationBuilder
-                .setSmallIcon(R.drawable.ic_farmacia)
-                .setColor(rgb(255, 160, 0))
+                .setSmallIcon(R.drawable.ic_twotone_moto_pink)
+                .setColor(getResources().getColor(R.color.ColorFarmanor))
                 .setContentTitle(title)
                 .setContentText(Body)
                 .setAutoCancel(true)

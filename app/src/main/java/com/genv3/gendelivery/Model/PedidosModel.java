@@ -54,6 +54,7 @@ public class PedidosModel implements IEntregasDisponibles.Model {
                 if (!response.isSuccessful()) {
                     int respuesta = response.code();
                     //textView.setText(String.valueOf(respuesta));
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
                     return;
                 }
                 //Gson parsea los datos automaticamente y mediante response.body extraemos los datos en la list

@@ -36,6 +36,8 @@ public class EntregaModel implements IEntrega.Model {
             @Override
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
                 if (!response.isSuccessful()) {
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
+
                     return;
                 }
                 List<EntregasTomadas> entregasTomadasList = response.body();
@@ -74,6 +76,8 @@ public class EntregaModel implements IEntrega.Model {
             @Override
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
                 if (!response.isSuccessful()) {
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
+
                     return;
                 }
                 ArrayList<EntregasTomadas> entregasTomadas2 = new ArrayList<>();
@@ -114,6 +118,8 @@ public class EntregaModel implements IEntrega.Model {
             @Override
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
                 if (!response.isSuccessful()) {
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
+
                     return;
                 }
                 ArrayList<EntregasTomadas> entregasTomadas2 = new ArrayList<>();

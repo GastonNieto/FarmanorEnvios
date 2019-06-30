@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.genv3.gendelivery.Objects.DetalleComprobante;
 import com.genv3.gendelivery.Objects.EntregasTomadas;
 import com.genv3.gendelivery.R;
 import com.genv3.gendelivery.util.FormatDate;
@@ -25,6 +26,7 @@ public class EntregaDetalleView extends AppCompatActivity {
     }
 
     private void setDatos(EntregasTomadas entregasTomadas) {
+        String pedidos = "";
         etgdfechaent.setText(FormatDate.formateador(entregasTomadas.getEtgtFechaEntrega()));
         sclnom.setText(entregasTomadas.getEntregasDisponibles().get(0).getSucursal().get(0).getSclNom());
         scldir.setText(entregasTomadas.getEntregasDisponibles().get(0).getSucursal().get(0).getSclDir());
@@ -32,10 +34,14 @@ public class EntregaDetalleView extends AppCompatActivity {
         etgdidcomprobante.setText(entregasTomadas.getEntregasDisponibles().get(0).getEtgdIdComprobante());
         etgddir.setText(entregasTomadas.getEntregasDisponibles().get(0).getEtgdDir());
         etgdreceptor.setText(entregasTomadas.getEntregasDisponibles().get(0).getEtgdReceptor());
-        etgdpedido.setText(entregasTomadas.getEntregasDisponibles().get(0).getEtgdPedido());
+        for (DetalleComprobante aux : entregasTomadas.getEntregasDisponibles().get(0).getEtgdPedido()) {
+            pedidos = pedidos + aux.getDes_articulo() + " *Cant. " + aux.getCantidad() + "\n" + "--------" + "\n";
+
+        }
+        etgdpedido.setText(pedidos);
         etgdtel.setText(entregasTomadas.getEntregasDisponibles().get(0).getEtgdTel().toString());
         etgdfecha.setText(FormatDate.formateador(entregasTomadas.getEntregasDisponibles().get(0).getEtgdFecha()));
-        etgdimpentdet.setText("$"+entregasTomadas.getEtgtImporte().toString());
+        etgdimpentdet.setText("$" + entregasTomadas.getEtgtImporte().toString());
     }
 
     void ini() {

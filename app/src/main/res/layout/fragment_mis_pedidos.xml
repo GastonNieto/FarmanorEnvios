@@ -63,106 +63,145 @@
 
 
     </LinearLayout>
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="5dp"
-    android:layout_marginTop="2.5dp"
-    android:layout_marginEnd="5dp"
-    android:layout_marginBottom="2.5dp"
-    android:elevation="10dp"
-    app:cardCornerRadius="3dp">
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ColorFarmanor">
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="2.5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="3dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/ColorFarmanor">
 
-            <TextView
-                android:id="@+id/tvFiltro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="8dp"
-                android:text="Tus Ganancias"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvGanancia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="8dp"
-                android:text="$0"
-                android:textColor="#FFFFFF"
-                android:textSize="36dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvFiltro" />
-
-            <View
-                android:id="@+id/view"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="10dp"
-                android:background="#FFFF"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvGanancia">
+                android:layout_height="match_parent">
 
-            </View>
+                <TextView
+                    android:id="@+id/tvFiltro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Tus Ganancias"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="6dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view"
-                app:layout_constraintVertical_bias="0.0">
+                <TextView
+                    android:id="@+id/tvGanancia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="$0.0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFiltro" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ibtnClear"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:text="HOY"
-                    android:textColor="#FFFF"
-                    app:cornerRadius="20dp"
-                    app:strokeColor="#FFFF" />
+                <TextView
+                    android:id="@+id/tvFiltroDetalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Hoy"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:layout_constraintVertical_bias="0.0" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ibtnBuscar"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="20dp"
-                    android:text="Filtrar"
-                    android:textColor="#FFFF"
-                    app:cornerRadius="20dp"
-                    app:strokeColor="#FFFF" />
-            </LinearLayout>
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#FFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFiltroDetalle"
+                    app:layout_constraintVertical_bias="0.0">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+                </View>
 
-</androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.503"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/ibtnClear"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:text="HOY"
+                        android:textColor="#FFFF"
+                        app:cornerRadius="20dp"
+                        app:strokeColor="#FFFF" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/ibtnBuscar"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="20dp"
+                        android:text="Filtrar"
+                        android:textColor="#FFFF"
+                        app:cornerRadius="20dp"
+                        app:strokeColor="#FFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:textSize="14dp"
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Entregas realizadas"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGanancia" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"

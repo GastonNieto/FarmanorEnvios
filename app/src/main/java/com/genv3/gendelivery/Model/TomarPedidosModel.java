@@ -33,6 +33,8 @@ public class TomarPedidosModel implements ITomarPedidos.Model {
             @Override
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
                 if (!response.isSuccessful()) {
+                    presener.onError(R.drawable.ic_twotone_sinservicio);
+
                     return;
                 }
                 List<EntregasTomadas> entregasTomadasList = response.body();

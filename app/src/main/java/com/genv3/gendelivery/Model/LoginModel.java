@@ -51,6 +51,7 @@ public class LoginModel implements Ilogin.model {
                 //si la respuesta no se pudo obtener ejemplo no esta autenticado para obetner la informacion
                 if (!response.isSuccessful()) {
                     int respuesta = response.code();
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
                     return;
                 }
                 //Gson parsea los datos automaticamente y mediante response.body extraemos los datos en la list

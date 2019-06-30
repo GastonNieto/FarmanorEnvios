@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.genv3.gendelivery.Interface.IEntrega;
+import com.genv3.gendelivery.Objects.DetalleComprobante;
 import com.genv3.gendelivery.Objects.EntregasTomadas;
 import com.genv3.gendelivery.Presenter.EntregaPresenter;
 import com.genv3.gendelivery.R;
@@ -161,13 +162,17 @@ public class EntregaFragment extends Fragment implements IEntrega.View, View.OnC
     @Override
     public void CargarEntrega(ArrayList<EntregasTomadas> tomadas) {
         layout.setVisibility(View.VISIBLE);
+        String pedidos = "";
         etgtId = tomadas.get(0).getEtgtId();
         tfsclnom.setText(tomadas.get(0).getEntregasDisponibles().get(0).getSucursal().get(0).getSclNom());
         tfscldir.setText(tomadas.get(0).getEntregasDisponibles().get(0).getSucursal().get(0).getSclDir());
         tfscltel.setText(tomadas.get(0).getEntregasDisponibles().get(0).getSucursal().get(0).getSclTel().toString());
         tfetgdidcomprobante.setText(tomadas.get(0).getEntregasDisponibles().get(0).getEtgdIdComprobante());
         tfetgdreceptor.setText(tomadas.get(0).getEntregasDisponibles().get(0).getEtgdReceptor());
-        tfetgdpedido.setText(tomadas.get(0).getEntregasDisponibles().get(0).getEtgdPedido());
+        for (DetalleComprobante aux : tomadas.get(0).getEntregasDisponibles().get(0).getEtgdPedido()) {
+            pedidos = pedidos + aux.getDes_articulo() + " *Cant. " + aux.getCantidad() + "\n" + "--------" + "\n";
+        }
+        tfetgdpedido.setText(pedidos);
         tfetgddir.setText(tomadas.get(0).getEntregasDisponibles().get(0).getEtgdDir());
         tfetgdtel.setText(tomadas.get(0).getEntregasDisponibles().get(0).getEtgdTel().toString());
         tfetgdfecha.setText(tomadas.get(0).getEntregasDisponibles().get(0).getEtgdFecha());
@@ -182,7 +187,7 @@ public class EntregaFragment extends Fragment implements IEntrega.View, View.OnC
     @Override
     public void OnSucessCharge() {
         dialog.dismiss();
-      //  Toast.makeText(getContext(), "SALGO POR AQUI", Toast.LENGTH_LONG).show();
+        //  Toast.makeText(getContext(), "SALGO POR AQUI", Toast.LENGTH_LONG).show();
     }
 
     @Override

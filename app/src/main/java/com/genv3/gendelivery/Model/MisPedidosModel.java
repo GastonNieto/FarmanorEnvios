@@ -39,6 +39,8 @@ public class MisPedidosModel implements IMisPedidos.Model {
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
                 Double ganancia = 0.0;
                 if (!response.isSuccessful()) {
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
+
                     return;
                 }
                 tomadas.clear();
@@ -52,9 +54,9 @@ public class MisPedidosModel implements IMisPedidos.Model {
                 if (tomadas.size()==0) {
                     presenter.OnClear(R.drawable.ic_twotone_clear);
                     tomadas.clear();
-                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100.0) / 100.0);
                 } else {
-                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100.0) / 100.0);
                     presenter.OnSucessCharge();
 
                 }
@@ -81,6 +83,8 @@ public class MisPedidosModel implements IMisPedidos.Model {
             @Override
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
                 if (!response.isSuccessful()) {
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
+
                     return;
                 }
                 Double ganancia = 0.0;
@@ -93,9 +97,9 @@ public class MisPedidosModel implements IMisPedidos.Model {
                 if (tomadas.size()==0) {
                     presenter.OnClear(R.drawable.ic_twotone_clear);
                     tomadas.clear();
-                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100.0) / 100.0);
                 } else {
-                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100.0) / 100.0);
                     presenter.OnSucessCharge();
 
                 }
@@ -122,6 +126,8 @@ public class MisPedidosModel implements IMisPedidos.Model {
             @Override
             public void onResponse(Call<List<EntregasTomadas>> call, Response<List<EntregasTomadas>> response) {
                 if (!response.isSuccessful()) {
+                    presenter.OnErrorCharge(R.drawable.ic_twotone_sinservicio);
+
                     return;
                 }
                 Double ganancia = 0.0;
@@ -134,10 +140,10 @@ public class MisPedidosModel implements IMisPedidos.Model {
                 if (tomadas.size()==0) {
                     presenter.OnClear(R.drawable.ic_twotone_clear);
                     tomadas.clear();
-                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100.0) / 100.0);
 
                 } else {
-                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100) / 100);
+                    presenter.RecibirMisPedidos(tomadas,  Math.floor(ganancia* 100.0) / 100.0);
                     presenter.OnSucessCharge();
 
                 }

@@ -28,6 +28,7 @@ import com.genv3.gendelivery.Objects.EntregasTomadas;
 import com.genv3.gendelivery.Presenter.MisPedidosPresenter;
 import com.genv3.gendelivery.R;
 import com.genv3.gendelivery.View.Activtys.FiltroFechaActivity;
+import com.genv3.gendelivery.util.FormatDate;
 import com.genv3.gendelivery.util.Preferens;
 import com.google.android.material.button.MaterialButton;
 
@@ -55,7 +56,7 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private TextView tvganancia;
+    private TextView tvganancia, tvfiltrodetalle;
     private IMisPedidos.Presenter presenter;
     private Long idCadete;
     private Context context;
@@ -102,10 +103,12 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
         View view = inflater.inflate(R.layout.fragment_mis_pedidos, container, false);
         context = this.getContext();
         presenter = new MisPedidosPresenter(this);
+
         idCadete = Preferens.getInteger(context, Preferens.getKeyGuardia());
         ibtnbuscar = view.findViewById(R.id.ibtnBuscar);
         ibtnclear = view.findViewById(R.id.ibtnClear);
         tvganancia = view.findViewById(R.id.tvGanancia);
+        tvfiltrodetalle = view.findViewById(R.id.tvFiltroDetalle);
         ibtnbuscar.setOnClickListener(this);
         ibtnclear.setOnClickListener(this);
         recyclerView = view.findViewById(R.id.rvMisPedidos);
@@ -149,7 +152,7 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
         AdapterMisPedidos misPedidos = new AdapterMisPedidos(entregasTomadas, context);
         recyclerView.setAdapter(misPedidos);
         misPedidos.notifyDataSetChanged();
-        tvganancia.setText("$"+ganancia.toString());
+        tvganancia.setText("$" + ganancia.toString());
     }
 
     @Override
@@ -221,6 +224,7 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
                 break;
             case R.id.ibtnClear:
                 DialogCartel();
+                tvfiltrodetalle.setText("Hoy");
                 presenter.SolicitarMisPedidos(idCadete, "Tomado");
                 break;
 
@@ -236,9 +240,11 @@ public class MisPedidosFragment extends Fragment implements IMisPedidos.View, Vi
                 ffinal = data.getStringExtra("ffinal");
                 unicafecha = data.getStringExtra("unicafecha");
                 if (inicial == null || ffinal == null) {
+                    tvfiltrodetalle.setText("El día: "+ FormatDate.formateadorDate(unicafecha));
                     DialogCartel();
                     presenter.SolicitarFechaUnica(idCadete, "Tomado", unicafecha);
                 } else {
+                    tvfiltrodetalle.setText("Entre: "+ FormatDate.formateadorDate(inicial)+"y "+FormatDate.formateadorDate(ffinal));
                     DialogCartel();
                     presenter.SolicitarFechaRango(idCadete, "Tomado", inicial, ffinal);
 
